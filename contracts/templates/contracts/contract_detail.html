@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block base_content %}
+<h1 class="mb-4">{% trans "IT Contract" %}</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>{% trans "Contract" %}</th>
+            <th>
+                {% if object.contract %}
+                <a href="{{ object.contract.url }}">
+                    <i class="fas fa-file-pdf mr-1"></i>
+                    {{ object.name }}
+                </a>
+                {% else %}
+                {{ object.name }}
+                {% endif %}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>{% trans "Contract  number" %}</th>
+            <td>{{ object.number }}</td>
+        </tr>
+        <tr>
+            <th>{% trans "Expenditures" %}</th>
+            <td>
+                {{ object.get_expenditure_display }}<br>
+                {{ object.get_subject_display }}
+            </td>
+        </tr>
+        <tr>
+            <th>{% trans "Vendor" %}</th>
+            <td>
+                <p>
+                    {{ object.vendor.name }}
+                    <button class="btn btn-outline-primary btn-sm ml-5" type="button" data-toggle="collapse" data-target="#contact" aria-expand="false" aria-controls="contactCollapse" >
+                        <i class="fas fa-address-card mr-1"></i>
+                        {% trans "Toggle contact" %}
+                    </button>
+                </p>
+                <div class="collapse" id="contact">
+                    <div class="card">
+                        <div class="card-body">
+                            <pre>{{ object.vendor.contact }}</pre>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 class="mb-4">{% trans "Invoices" %}</h2>
+<table class="table table-bordered table-hover table-striped">
+    <thead>
+        <tr>
+            <th>{% trans "Invoice" %}</th>
+            <th>{% trans "Date" %}</th>
+            <th>{% trans "Value" %}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for invoice in object.invoice_set.all %}
+        <tr>
+            <td>
+                <a href="{{ invoice.invoice.url }}">
+                    <i class="fas fa-file-pdf mr-1"></i>
+                    {{ invoice.name }}
+                </a>
+            </td>
+            <td>{{ invoice.date }}</td>
+            <td>{{ invoice.value }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
+<!--
+    vim:syntax=htmldjango
+-->

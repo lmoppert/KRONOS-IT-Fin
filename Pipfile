@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+"psycopg2" = "*"
+django-money = "*"
+django-extensions = "*"
+django-debug-toolbar = "*"
+pygraphviz = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.6"

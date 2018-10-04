@@ -1,0 +1,99 @@
+{% load static from staticfiles %}
+{% load i18n %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'contracts/css/base.css' %}">
+    <title>IT Contracts</title>
+  </head>
+  <body>
+    <div id="header">
+      <nav class="navbar navbar-dark navbar-expand-md fixed-top">
+        <div class="container">
+          <a href="#" class="navbar-brand order-md-last">
+            <img src='{% static "contracts/img/kronoslogo.svg" %}' alt="KRONOS" height="50">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse collapse" id="mainNav">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item homeLink">
+                <a href="/" class="nav-link">
+                  <span aria-hidden="true" class="fa fa-spacer-right fa-home"></span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'invoice_list' %}" class="nav-link">
+                  {% trans "Invoices" %}
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'contract_list' %}" class="nav-link">
+                  {% trans "Contracts" %}
+                </a>
+              </li>
+              </li>
+              <li class="nav-item adminLink">
+                <a href="/admin/" class="nav-link">{% trans "Administration" %}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div id="main">
+      <div class="container">
+        {% if messages %}{% for message in messages %}
+        <div role="alert" class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %} alert-dismissible fade show">
+          <b>{% trans message.tags|upper %}</b><br>{{ message }}
+          <button type="button" class="close" data-dismiss="alert" aria-labeled="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        {% endfor %} {% endif %}
+        {% block base_content %}
+        <h1>KRONOS IT Contracts</h1>
+        {% endblock %}
+      </div>
+    </div>
+     <div id="footer">
+       <div class="container">
+         <div class="content">
+           <ul id="menu" class="menu">
+             <li class="item-115"><a href="https://kronostio2.com/en/important-legal-information">Important Legal Information</a></li>
+             <li class="item-669"><a href="https://kronostio2.com/en/terms-and-conditions">Terms and Conditions of Sale</a></li>
+             <li class="item-116"><a href="https://kronostio2.com/en/privacy-policy">Privacy Policy</a></li>
+           </ul>
+           <br>
+           <ul>
+             <li>&copy; 2018 KRONOS Worldwide, Inc.</li>
+             <li>5430 LBJ Freeway, Suite 1700</li>
+             <li>Dallas, TX, 75240</li>
+             <li>United States</li>
+           </ul>
+           <br>
+           <ul>
+             <li>Phone: (972) 233-1700</li>
+             <li>Fax: (972) 448-1445</li>
+             <li><a href="mailto:kronos.marketing@kronosww.com">kronos.marketing@kronosww.com</a></li>
+           </ul>
+         </div>
+       </div>
+     </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
+<!-- 
+    vim:syntax=htmldjango:ts=2:sw=2:sts=2:nowrap
+-->

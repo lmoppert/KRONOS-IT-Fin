@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block base_content %}
+<h1 class="mb-4">{% trans "IT Contracts" %}</h1>
+<table class="table table-bordered table-hover table-striped">
+    <thead>
+        <tr>
+            <th>{% trans "Contract" %}</th>
+            <th>{% trans "Order Number" %}</th>
+            <th>{% trans "Vendor" %}</th>
+            <th>{% trans "PDF" %}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for object in object_list %}
+        <tr>
+            <td>
+                <a href="{{ object.get_absolute_url }}">
+                    {{ object }}
+                </a>
+            </td>
+            <td>{{ object.number }}</td>
+            <td>
+                <a data-toggle="modal" data-target="#contact-{{ object.pk }}">
+                    {{ object.vendor.name }}
+                </a>
+                <div class="modal fade" id="contact-{{ object.pk }}" tabindex="-1" role="dialog" aria-labelledby="label{{ object.pk }}" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="">
+                                    {% trans "Contact" %} - 
+                                    {{ object.vendor.name }}
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <pre>{{ object.vendor.contact }}</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td class="text-center">
+                {% if object.contract %}
+                <a href="{{ object.contract.url }}">
+                    <i class="fas fa-file-pdf"></i>
+                </a>
+                {% else %}
+                <i class="fas fa-times text-danger"></i>
+                {% endif %}
+
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
+<!--
+    vim:syntax=htmldjango
+-->

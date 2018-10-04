@@ -1,0 +1,183 @@
+# Translations for the IT Contracts Appliction
+# Copyright (C) 2018 KRONOS TITAN GmbH
+# This file is distributed under the same license as the itfin package.
+# Lutz Moppert <lutz.moppert@kronosww.com>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0 VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-04 16:45+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Lutz Moppert <lutz.moppert@kronosww.com>\n"
+"Language-Team: \n"
+"Language: Deutsch\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: constants.py:5 constants.py:10
+msgid "unknown"
+msgstr "Unbekannt"
+
+#: constants.py:6
+msgid "CAPEX"
+msgstr "CAPEX"
+
+#: constants.py:7
+msgid "OPEX"
+msgstr "OPEX"
+
+#: constants.py:11
+msgid "Hardware"
+msgstr "Hardware"
+
+#: constants.py:12
+msgid "Software"
+msgstr "Software"
+
+#: constants.py:13
+msgid "Service"
+msgstr "Dienstleistung"
+
+#: models.py:11 models.py:18 models.py:38 models.py:97
+#: templates/contracts/contract_detail.html:35
+#: templates/contracts/index.html:13 templates/contracts/invoice_detail.html:31
+msgid "Vendor"
+msgstr "Lieferant"
+
+#: models.py:12 templates/contracts/index.html:37
+msgid "Contact"
+msgstr "Ansprechpartner"
+
+#: models.py:19
+msgid "Vendors"
+msgstr "Lieferanten"
+
+#: models.py:25 models.py:47 models.py:63 models.py:95
+#: templates/contracts/contract_detail.html:9
+msgid "Contract"
+msgstr "Rahmenvertrag"
+
+#: models.py:27 models.py:83 templates/contracts/index.html:12
+msgid "Order Number"
+msgstr "Bestellnummer"
+
+#: models.py:29 models.py:87
+msgid "Expenditure"
+msgstr "Ausgabenart"
+
+#: models.py:31 models.py:89
+msgid "Subject"
+msgstr "Gegenstand"
+
+#: models.py:33
+msgid "Contract PDF"
+msgstr "Vertragsdokument"
+
+#: models.py:34 models.py:59 models.py:90
+msgid "Comment"
+msgstr "Kommentar"
+
+#: models.py:48
+msgid "Contracts"
+msgstr "Rahmenverträge"
+
+#: models.py:55
+msgid "Begin date"
+msgstr "Anfangsdatum"
+
+#: models.py:56
+msgid "Validity in month"
+msgstr "Laufzeit in Monaten"
+
+#: models.py:58 models.py:81 templates/contracts/contract_detail.html:62
+#: templates/contracts/index.html:14
+msgid "Value"
+msgstr "Wert"
+
+#: models.py:69
+msgid "Budget"
+msgstr "Budget"
+
+#: models.py:70
+msgid "Budgets"
+msgstr "Budgets"
+
+#: models.py:76 models.py:77 models.py:106
+#: templates/contracts/contract_detail.html:60
+#: templates/contracts/index.html:10 templates/contracts/invoice_detail.html:9
+msgid "Invoice"
+msgstr "Rechnung"
+
+#: models.py:79
+msgid "Date of invoice"
+msgstr "Rechnungsdatum"
+
+#: models.py:85
+msgid "Invoice PDF"
+msgstr "Rechnungsdokument"
+
+#: models.py:107 templates/contracts/contract_detail.html:56
+msgid "Invoices"
+msgstr "Rechnungen"
+
+#: templates/base.html:34
+msgid "Administration"
+msgstr "Verwaltung"
+
+#: templates/contracts/contract_detail.html:5
+msgid "IT Contract"
+msgstr "IT Vertrag"
+
+#: templates/contracts/contract_detail.html:24
+msgid "Contract  number"
+msgstr "Rahmenvertragsnummer"
+
+#: templates/contracts/contract_detail.html:28
+#: templates/contracts/invoice_detail.html:24
+msgid "Expenditures"
+msgstr "Ausgabenarten"
+
+#: templates/contracts/contract_detail.html:41
+#: templates/contracts/invoice_detail.html:37
+msgid "Toggle contact"
+msgstr "Ansprechpartner ein-/ausblenden"
+
+#: templates/contracts/contract_detail.html:61
+#: templates/contracts/index.html:11
+msgid "Date"
+msgstr "Rechnungsdatum"
+
+#: templates/contracts/index.html:5
+msgid "IT Invoices and Contracts"
+msgstr "IT Rechnungen und Verträge"
+
+#: templates/contracts/index.html:6
+msgid "Latest Invoices"
+msgstr "Letzte Rechnungen"
+
+#: templates/contracts/index.html:15
+msgid "PDF"
+msgstr ""
+
+#: templates/contracts/index.html:61
+msgid "Available Contracts"
+msgstr "Verfügbare Verträge"
+
+#: templates/contracts/invoice_detail.html:5
+msgid "IT Invoice"
+msgstr "IT Rechnung"
+
+#: templates/contracts/invoice_detail.html:20
+msgid "Invoice  number"
+msgstr "Rechnungsnummer"
+
+#: templates/registration/login.html:6
+msgid "KRONOS Login"
+msgstr "KRONOS Mitarbeiter Anmeldung"
+
+#: templates/registration/login.html:11
+msgid "Login"
+msgstr "Anmelden"

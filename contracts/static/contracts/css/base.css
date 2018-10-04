@@ -1,0 +1,57 @@
+html body {
+    background-color: #e3e6ea;
+}
+html body #main  {
+    background-color: #fff;
+    color: #555;
+    padding: 120px 0;
+}
+body #header .navbar {
+    background: url(../img/background.png) bottom left repeat-x;
+    margin-top: 10px;
+}
+body #header .navbar .navbar-brand {
+    padding: 0;
+    border-left: #fff solid 18px;
+    border-right: #fff solid 18px;
+}
+body #header #mainNav ul {
+    margin-top: 5px;
+}
+body #header a {
+    color: #fff;
+}
+body #footer a, body #main a {
+    color: #0e4194;
+}
+body #footer a:hover, body #main a:hover {
+    color: #8dc73f;
+}
+body #footer {
+}
+body #footer .content {
+    display: block;
+    margin: 15px auto;
+    padding: 20px 0 20px 100px;
+    background: url(../img/footerlogo.svg) top left no-repeat;
+    background-size: contain;
+    min-height: 120px;
+    font-size: 12px;
+}
+body #footer ul {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+body #footer ul li {
+    float: left;
+    list-style-image: none;
+    list-style-position: inside;
+    list-style-type: none;
+    border-left: 1px solid #0e4194;
+    padding: 0 5px;
+}
+body #footer ul li:first-child {
+    border-left: 0 none;
+    padding-left: 0;
+}
