@@ -9,8 +9,8 @@
         <tr>
             <th>{% trans "Invoice" %}</th>
             <th>{% trans "Date" %}</th>
-            <th>{% trans "Order Number" %}</th>
-            <th>{% trans "Vendor" %}</th>
+            <th class="d-none d-xl-table-cell">{% trans "Order Number" %}</th>
+            <th class="d-none d-lg-table-cell">{% trans "Vendor" %}</th>
             <th>{% trans "Value" %}</th>
             <th>{% trans "PDF" %}</th>
         </tr>
@@ -24,8 +24,8 @@
                 </a>
             </td>
             <td>{{ object.date }}</td>
-            <td>{{ object.number }}</td>
-            <td>
+            <td class="d-none d-xl-table-cell">{{ object.number }}</td>
+            <td class="d-none d-lg-table-cell">
                 <a data-toggle="modal" data-target="#contact-{{ object.pk }}">
                     {{ object.vendor.name }}
                 </a>
@@ -63,7 +63,7 @@
     <thead>
         <tr>
             <th>{% trans "Contract" %}</th>
-            <th>{% trans "Order Number" %}</th>
+            <th class="d-none d-lg-table-cell">{% trans "Order Number" %}</th>
             <th>{% trans "Vendor" %}</th>
             <th>{% trans "PDF" %}</th>
         </tr>
@@ -76,7 +76,7 @@
                     {{ object }}
                 </a>
             </td>
-            <td>{{ object.number }}</td>
+            <td class="d-none d-lg-table-cell">{{ object.number }}</td>
             <td>
                 <a data-toggle="modal" data-target="#contact-{{ object.pk }}">
                     {{ object.vendor.name }}

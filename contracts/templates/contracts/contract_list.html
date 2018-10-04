@@ -17,7 +17,9 @@
         <tr>
             <td>
                 <a href="{{ object.get_absolute_url }}">
+                    {% if not object.active %}<s>{% endif %}
                     {{ object }}
+                    {% if not object.active %}</s>{% endif %}
                 </a>
             </td>
             <td>{{ object.number }}</td>
