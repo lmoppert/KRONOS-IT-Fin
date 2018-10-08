@@ -25,24 +25,35 @@
           </button>
           <div class="navbar-collapse collapse" id="mainNav">
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item homeLink">
+              <li class="nav-item homeLink" id="homeLink">
                 <a href="/" class="nav-link">
                   <span aria-hidden="true" class="fa fa-spacer-right fa-home"></span>
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" id="invoiceLink">
                 <a href="{% url 'invoice_list' %}" class="nav-link">
+                  <!-- i class="fa fa-file-invoice-dollar fa-spacer-right"></i -->
                   {% trans "Invoices" %}
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" id="newInvoiceLink">
+                <a href="{% url 'new_invoice' %}" class="nav-link">
+                  <!-- i class="fa fa-file-invoice-dollar fa-spacer-right"></i -->
+                  {% trans "New Invoice" %}
+                </a>
+              </li>
+              <li class="nav-item" id="contractLink">
                 <a href="{% url 'contract_list' %}" class="nav-link">
+                  <!-- i class="fa fa-file-contract fa-spacer-right"></i -->
                   {% trans "Contracts" %}
                 </a>
               </li>
               </li>
-              <li class="nav-item adminLink">
-                <a href="/admin/" class="nav-link">{% trans "Administration" %}</a>
+              <li class="nav-item adminLink" id="adminLink">
+                <a href="/admin/" class="nav-link">
+                  <!-- i class="fa fa-cog fa-spacer-right"></i -->
+                  {% trans "Administration" %}
+                </a>
               </li>
             </ul>
           </div>
@@ -92,6 +103,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    {% block extra_js %}{% endblock %}
   </body>
 </html>
 <!-- 

@@ -1,6 +1,5 @@
-from django.views.generic.detail import DetailView
-from django.views.generic.list import ListView
 from django.shortcuts import render
+from django.views import generic
 from contracts import models
 
 
@@ -12,17 +11,23 @@ def index(request):
         'invoices': invoices, 'contracts': contracts})
 
 
-class ContractView(DetailView):
+class ContractView(generic.detail.DetailView):
     model = models.Contract
 
 
-class InvoiceView(DetailView):
+class InvoiceView(generic.detail.DetailView):
     model = models.Invoice
 
 
-class ContractList(ListView):
+class NewInvoiceView(generic.edit.CreateView):
+    model = models.Invoice
+    fields = ['name', 'date', 'value', 'number', 'invoice', 'contract',
+              'comment', 'expenditure', 'subject', 'vendor']
+
+
+class ContractList(generic.list.ListView):
     model = models.Contract
 
 
-class InvoiceList(ListView):
+class InvoiceList(generic.list.ListView):
     model = models.Invoice

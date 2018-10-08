@@ -81,7 +81,7 @@ class Invoice(models.Model):
                             verbose_name=_("Date of invoice"))
     value = MoneyField(max_digits=11, decimal_places=2, default_currency='EUR',
                        verbose_name=_("Value"))
-    number = models.CharField(max_length=200, blank=True,
+    number = models.CharField(max_length=200, blank=True, default='--',
                               verbose_name=_("Order Number"))
     invoice = models.FileField(upload_to='invoices/',
                                verbose_name=_("Invoice PDF"))
@@ -97,6 +97,18 @@ class Invoice(models.Model):
                                  verbose_name=_("Contract"))
     vendor = models.ForeignKey(Vendor, default=None, on_delete=models.SET_NULL,
                                null=True, blank=True, verbose_name=_("Vendor"))
+
+    def get_expenditure(self):
+        if self.contract:
+            return self.contract.expenditure
+        else:
+            return self.expenditure
+
+    def get_subject(self):
+        if self.contract:
+            return self.contract.subject
+        else:
+            return self.subject
 
     def get_absolute_url(self):
         return reverse('invoice', args=[str(self.pk)])

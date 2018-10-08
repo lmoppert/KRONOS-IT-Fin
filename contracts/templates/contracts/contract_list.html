@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load i18n %}
 
+{% block extra_js %}
+<script>$('#contractLink').addClass('active')</script>
+{% endblock %}
+
 {% block base_content %}
 <h1 class="mb-4">{% trans "IT Contracts" %}</h1>
 <table class="table table-bordered table-hover table-striped">

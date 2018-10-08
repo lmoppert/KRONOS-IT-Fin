@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0 VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-04 18:26+0200\n"
+"POT-Creation-Date: 2018-10-08 18:08+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Lutz Moppert <lutz.moppert@kronosww.com>\n"
 "Language-Team: \n"
@@ -43,15 +43,15 @@ msgstr "Dienstleistung"
 
 #: models.py:11 models.py:18 models.py:39 models.py:99
 #: templates/contracts/contract_detail.html:35
-#: templates/contracts/contract_list.html:11 templates/contracts/index.html:13
-#: templates/contracts/index.html:67 templates/contracts/invoice_detail.html:31
-#: templates/contracts/invoice_list.html:12
+#: templates/contracts/contract_list.html:15 templates/contracts/index.html:17
+#: templates/contracts/index.html:71 templates/contracts/invoice_detail.html:31
+#: templates/contracts/invoice_list.html:16
 msgid "Vendor"
 msgstr "Lieferant"
 
-#: models.py:12 templates/contracts/contract_list.html:33
-#: templates/contracts/index.html:37 templates/contracts/index.html:89
-#: templates/contracts/invoice_list.html:36
+#: models.py:12 templates/contracts/contract_list.html:39
+#: templates/contracts/index.html:41 templates/contracts/index.html:93
+#: templates/contracts/invoice_list.html:40
 msgid "Contact"
 msgstr "Ansprechpartner"
 
@@ -61,13 +61,13 @@ msgstr "Lieferanten"
 
 #: models.py:25 models.py:49 models.py:65 models.py:97
 #: templates/contracts/contract_detail.html:9
-#: templates/contracts/contract_list.html:9 templates/contracts/index.html:65
+#: templates/contracts/contract_list.html:13 templates/contracts/index.html:69
 msgid "Contract"
 msgstr "Rahmenvertrag"
 
-#: models.py:27 models.py:85 templates/contracts/contract_list.html:10
-#: templates/contracts/index.html:12 templates/contracts/index.html:66
-#: templates/contracts/invoice_list.html:11
+#: models.py:27 models.py:85 templates/contracts/contract_list.html:14
+#: templates/contracts/index.html:16 templates/contracts/index.html:70
+#: templates/contracts/invoice_list.html:15
 msgid "Order Number"
 msgstr "Bestellnummer"
 
@@ -91,7 +91,7 @@ msgstr "Vertragsdokument"
 msgid "Comment"
 msgstr "Kommentar"
 
-#: models.py:50 templates/base.html:40
+#: models.py:50 templates/base.html:48
 msgid "Contracts"
 msgstr "Rahmenverträge"
 
@@ -104,7 +104,7 @@ msgid "Validity in month"
 msgstr "Laufzeit in Monaten"
 
 #: models.py:60 models.py:83 templates/contracts/contract_detail.html:62
-#: templates/contracts/index.html:14 templates/contracts/invoice_list.html:13
+#: templates/contracts/index.html:18 templates/contracts/invoice_list.html:17
 msgid "Value"
 msgstr "Wert"
 
@@ -116,10 +116,10 @@ msgstr "Budget"
 msgid "Budgets"
 msgstr "Budgets"
 
-#: models.py:78 models.py:79 models.py:109
+#: models.py:78 models.py:79 models.py:121
 #: templates/contracts/contract_detail.html:60
-#: templates/contracts/index.html:10 templates/contracts/invoice_detail.html:9
-#: templates/contracts/invoice_list.html:9
+#: templates/contracts/index.html:14 templates/contracts/invoice_detail.html:9
+#: templates/contracts/invoice_list.html:13
 msgid "Invoice"
 msgstr "Rechnung"
 
@@ -131,12 +131,16 @@ msgstr "Rechnungsdatum"
 msgid "Invoice PDF"
 msgstr "Rechnungsdokument"
 
-#: models.py:110 templates/base.html:35
+#: models.py:122 templates/base.html:36
 #: templates/contracts/contract_detail.html:56
 msgid "Invoices"
 msgstr "Rechnungen"
 
-#: templates/base.html:45
+#: templates/base.html:42
+msgid "New Invoice"
+msgstr "Neue Rechnung"
+
+#: templates/base.html:55
 msgid "Administration"
 msgstr "Verwaltung"
 
@@ -145,7 +149,7 @@ msgid "IT Contract"
 msgstr "IT Vertrag"
 
 #: templates/contracts/contract_detail.html:24
-msgid "Contract  number"
+msgid "Contract number"
 msgstr "Rahmenvertragsnummer"
 
 #: templates/contracts/contract_detail.html:28
@@ -159,29 +163,28 @@ msgid "Toggle contact"
 msgstr "Ansprechpartner ein-/ausblenden"
 
 #: templates/contracts/contract_detail.html:61
-#: templates/contracts/index.html:11 templates/contracts/invoice_list.html:10
+#: templates/contracts/index.html:15 templates/contracts/invoice_list.html:14
 msgid "Date"
 msgstr "Rechnungsdatum"
 
-#: templates/contracts/contract_list.html:5
-#| msgid "IT Contract"
+#: templates/contracts/contract_list.html:9
 msgid "IT Contracts"
 msgstr "IT Verträge"
 
-#: templates/contracts/contract_list.html:12 templates/contracts/index.html:15
-#: templates/contracts/index.html:68 templates/contracts/invoice_list.html:14
+#: templates/contracts/contract_list.html:16 templates/contracts/index.html:19
+#: templates/contracts/index.html:72 templates/contracts/invoice_list.html:18
 msgid "PDF"
 msgstr "PDF"
 
-#: templates/contracts/index.html:5
+#: templates/contracts/index.html:9
 msgid "IT Invoices and Contracts"
 msgstr "IT Rechnungen und Verträge"
 
-#: templates/contracts/index.html:6
+#: templates/contracts/index.html:10
 msgid "Latest Invoices"
 msgstr "Letzte Rechnungen"
 
-#: templates/contracts/index.html:61
+#: templates/contracts/index.html:65
 msgid "Available Contracts"
 msgstr "Verfügbare Verträge"
 
@@ -190,11 +193,22 @@ msgid "IT Invoice"
 msgstr "IT Rechnung"
 
 #: templates/contracts/invoice_detail.html:20
-msgid "Invoice  number"
+msgid "Invoice number"
 msgstr "Rechnungsnummer"
 
-#: templates/contracts/invoice_list.html:5
-#| msgid "IT Invoice"
+#: templates/contracts/invoice_form.html:29
+msgid "New IT Invoice"
+msgstr "Neue IT Rechnung"
+
+#: templates/contracts/invoice_form.html:34
+msgid "Toggle Contract / Single Invoice"
+msgstr "Umschalten zwischen Rahmenvertrag und Einzelrechnung"
+
+#: templates/contracts/invoice_form.html:69
+msgid "Save"
+msgstr "Speichern"
+
+#: templates/contracts/invoice_list.html:9
 msgid "IT Invoices"
 msgstr "IT Rechnungen"
 

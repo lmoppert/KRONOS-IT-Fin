@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load i18n %}
 
+{% block extra_js %}
+<script>$('#homeLink').addClass('active')</script>
+{% endblock %}
+
 {% block base_content %}
 <h1 class="mb-4">{% trans "IT Invoices and Contracts" %}</h1>
 <h3>{% trans "Latest Invoices" %}</h3>

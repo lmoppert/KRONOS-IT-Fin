@@ -10,6 +10,7 @@ django-money = "*"
 django-extensions = "*"
 django-debug-toolbar = "*"
 pygraphviz = "*"
+django-crispy-forms = "*"
 
 [dev-packages]
 

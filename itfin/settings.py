@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
     'debug_toolbar',
+    'crispy_forms',
     'djmoney',
     'contracts',
 ]
@@ -74,6 +75,9 @@ TEMPLATES = [
         },
     },
 ]
+
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 WSGI_APPLICATION = 'itfin.wsgi.application'
 

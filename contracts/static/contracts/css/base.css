@@ -18,9 +18,6 @@ body #header .navbar .navbar-brand {
 body #header #mainNav ul {
     margin-top: 5px;
 }
-body #header a {
-    color: #fff;
-}
 body #footer a, body #main a {
     color: #0e4194;
 }
