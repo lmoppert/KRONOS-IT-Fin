@@ -53,9 +53,13 @@
             </td>
             <td>{{ object.value }}</td>
             <td class="text-center">
-                <a href="{{ object.invoice.url }}">
-                    <i class="fas fa-file-pdf"></i>
-                </a>
+                {% for document in object.documents.all %}
+                    <a href="{{ document.pdf.url }}" title="{{ document.pdf.name }}">
+                        <i class="fas fa-file-pdf"></i>
+                    </a><br>
+                {% empty %}
+                    <i class="fas fa-times text-danger"></i>
+                {% endfor %}
             </td>
         </tr>
         {% endfor %}

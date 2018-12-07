@@ -21,8 +21,9 @@ class InvoiceView(generic.detail.DetailView):
 
 class NewInvoiceView(generic.edit.CreateView):
     model = models.Invoice
-    fields = ['name', 'date', 'value', 'number', 'invoice', 'contract',
-              'comment', 'expenditure', 'subject', 'vendor']
+    fields = ['name', 'date', 'value', 'number', 'expenditure', 'subject',
+              'comment', 'contract', 'vendor']
+    raw_id_fields = ['documents']
 
 
 class ContractList(generic.list.ListView):

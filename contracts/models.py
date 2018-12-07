@@ -11,12 +11,12 @@ class Vendor(models.Model):
     name = models.CharField(max_length=200, verbose_name=_("Vendor"))
     contact = models.TextField(blank=True, verbose_name=_("Contact"))
 
-    def __str__(self):
-        return "{}".format(self.name)
-
     class Meta:
         verbose_name = _("Vendor")
         verbose_name_plural = _("Vendors")
+
+    def __str__(self):
+        return "{}".format(self.name)
 
 
 class Contract(models.Model):
@@ -38,16 +38,16 @@ class Contract(models.Model):
     vendor = models.ForeignKey(Vendor, default=1, on_delete=models.PROTECT,
                                verbose_name=_("Vendor"))
 
-    def get_absolute_url(self):
-        return reverse('contract', args=[str(self.pk)])
-
-    def __str__(self):
-        return "{}".format(self.name)
-
     class Meta:
         ordering = ['-active', 'name']
         verbose_name = _("Contract")
         verbose_name_plural = _("Contracts")
+
+    def __str__(self):
+        return "{}".format(self.name)
+
+    def get_absolute_url(self):
+        return reverse('contract', args=[str(self.pk)])
 
 
 class Budget(models.Model):
@@ -64,12 +64,12 @@ class Budget(models.Model):
     contract = models.ForeignKey(Contract, on_delete=models.PROTECT,
                                  verbose_name=_("Contract"))
 
-    def __str__(self):
-        return "{} {}".format(self.valid_from, self.contract.name)
-
     class Meta:
         verbose_name = _("Budget")
         verbose_name_plural = _("Budgets")
+
+    def __str__(self):
+        return "{} {}".format(self.valid_from, self.contract.name)
 
 
 class Invoice(models.Model):
@@ -83,8 +83,6 @@ class Invoice(models.Model):
                        verbose_name=_("Value"))
     number = models.CharField(max_length=200, blank=True, default='--',
                               verbose_name=_("Order Number"))
-    invoice = models.FileField(upload_to='invoices/',
-                               verbose_name=_("Invoice PDF"))
     expenditure = models.CharField(max_length=1, choices=EXPENDITURES,
                                    blank=True, verbose_name=_("Expenditure"))
     subject = models.CharField(max_length=2, blank=True, choices=SUBJECTS,
@@ -98,6 +96,17 @@ class Invoice(models.Model):
     vendor = models.ForeignKey(Vendor, default=None, on_delete=models.SET_NULL,
                                null=True, blank=True, verbose_name=_("Vendor"))
 
+    class Meta:
+        ordering = ['-date']
+        verbose_name = _("Invoice")
+        verbose_name_plural = _("Invoices")
+
+    def __str__(self):
+        return "{}".format(self.name)
+
+    def get_absolute_url(self):
+        return reverse('invoice', args=[str(self.pk)])
+
     def get_expenditure(self):
         if self.contract:
             return self.contract.expenditure
@@ -110,13 +119,40 @@ class Invoice(models.Model):
         else:
             return self.subject
 
-    def get_absolute_url(self):
-        return reverse('invoice', args=[str(self.pk)])
+
+class NewDocumentManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(invoice__isnull=True)
+
+
+class InvoiceDocument(models.Model):
+    """Model for the PDF document of received invoices"""
+
+    name = models.CharField(max_length=50, verbose_name=_("Document"),
+                            default=_("Invoice"))
+    pdf = models.FileField(upload_to='invoices/',
+                           verbose_name=_("PDF Document"))
+    thumb = models.ImageField(upload_to='invoices/images/', editable=False,
+                              verbose_name=_("PDF Preview"))
+    modified = models.DateTimeField(auto_now=True,
+                                    verbose_name=_("Date Modified"))
+
+    # Relationship fields
+    invoice = models.ForeignKey(Invoice, on_delete=models.SET_NULL, null=True,
+                                default=None, related_name='documents',
+                                verbose_name=_("Invoice"))
+
+    # Custom manager
+    objects = models.Manager()
+    unassigned = NewDocumentManager()
+
+    class Meta:
+        ordering = ['-modified']
+        verbose_name = _("Invoice Document")
+        verbose_name_plural = _("Invoice Documents ")
 
     def __str__(self):
         return "{}".format(self.name)
 
-    class Meta:
-        ordering = ['-date']
-        verbose_name = _("Invoice")
-        verbose_name_plural = _("Invoices")
+    def get_absolute_url(self):
+        return reverse('invoice_pdf', args=[str(self.pk)])

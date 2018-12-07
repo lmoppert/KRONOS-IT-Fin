@@ -8,11 +8,12 @@ django = "*"
 "psycopg2" = "*"
 django-money = "*"
 django-extensions = "*"
-django-debug-toolbar = "*"
-pygraphviz = "*"
 django-crispy-forms = "*"
+pillow = "*"
 
 [dev-packages]
+django-debug-toolbar = "*"
+pygraphviz = "*"
 
 [requires]
-python_version = "3.6"
+python_version = "3"

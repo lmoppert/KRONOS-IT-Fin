@@ -10,18 +10,6 @@
     $('#id_value_0').wrap("<div class='col'></div>");
     $('#id_value_1').addClass("form-control");
     $('#id_value_1').wrap("<div class='col'></div>");
-    $('#div_id_invoice').addClass("custom-file");
-    $('#div_id_invoice > label').attr("class", "custom-file-label");
-    $('#id_invoice').attr("class", "custom-file-input");
-    $('#id_invoice').unwrap();
-    $("#id_invoice").change(function () {
-        var fieldVal = $(this).val();
-        fieldVal = fieldVal.replace("C:\\fakepath\\", "");
-        if (fieldVal != undefined || fieldVal != "") {
-            $(this).prev(".custom-file-label").attr('data-content', fieldVal);
-            $(this).prev(".custom-file-label").text(fieldVal);
-        }
-    });
 </script>
 {% endblock %}
 
@@ -54,7 +42,7 @@
         </div>
     </div>
     <div class="form-group mt-2 mb-4">
-        {{ form.invoice|as_crispy_field }}
+        {{ form.docuemts|as_crispy_field }}
     </div>
     <div class="row">
         <div class="col">

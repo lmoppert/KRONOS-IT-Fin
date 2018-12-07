@@ -1,0 +1,12 @@
+syntax: glob
+
+.DS_Store
+.settings
+.project
+.buildpath
+*.pyc
+*.sw?
+*~
+*.mo
+private.py
+media/*
